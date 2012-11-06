@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:components="components.*">
+	<s:layout>
+		<s:HorizontalLayout />
+	</s:layout>
+
+	<fx:Script>
+		<![CDATA[
+			import events.PersonEvent;			
+			import model.People;
+			import model.Person;
+			
+			[Bindable] protected var people:People = new People();
+			[Bindable] protected var currentPerson:Person;
+			
+			protected function changePerson(event:PersonEvent):void
+			{
+				currentPerson = event.person;
+			}			
+		]]>
+	</fx:Script>
+	
+	<components:SelectPerson people="{people.people}" selectPerson="changePerson(event)"/>
+	<components:PersonDetails person="{currentPerson}" />
+	
+</s:WindowedApplication>

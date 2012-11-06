@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="e4b59cc7-e9dc-4bb5-b6fc-c03ebe47bf4f" projectUUID="e4b59cc7-e9dc-4bb5-b6fc-c03ebe47bf4f" sdkVersion="4.1.0" uuid="356cf381-055a-473f-8801-78ffd52522e2" version="4">
+  <projects/>
+  <src/>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="356cf381-055a-473f-8801-78ffd52522e2"/>
+    <linked location="/libs" path="/libs" position="1" uuid="356cf381-055a-473f-8801-78ffd52522e2"/>
+    <linked location="${FLEXUNIT_LIB_LOCATION}/version4libs/Common/" path="${FLEXUNIT_LIB_LOCATION}/version4libs/Common/" position="2" uuid="356cf381-055a-473f-8801-78ffd52522e2"/>
+    <linked location="${FLEXUNIT_LIB_LOCATION}/version4libs/FlexProject/" path="${FLEXUNIT_LIB_LOCATION}/version4libs/FlexProject/" position="3" uuid="356cf381-055a-473f-8801-78ffd52522e2"/>
+    <linked location="${FLEXUNIT_LOCALE_LOCATION}/version4locale/" path="${FLEXUNIT_LOCALE_LOCATION}/version4locale/" position="4" uuid="356cf381-055a-473f-8801-78ffd52522e2"/>
+  </swc>
+  <misc/>
+  <theme/>
+</fxpProperties>
