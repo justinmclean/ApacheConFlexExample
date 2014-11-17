@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
-			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx"
-			   xmlns:components="components.*">
-	
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:components="components.*">
 	<s:layout>
 		<s:HorizontalLayout />
 	</s:layout>
-	
+
 	<fx:Script>
 		<![CDATA[
 			import events.PersonEvent;			
@@ -23,8 +22,8 @@
 			}			
 		]]>
 	</fx:Script>
-
-	<components:SelectPerson id="select" people="{people.people}" selectPerson="changePerson(event)"/>
-	<components:PersonDetails id="details" person="{currentPerson}" />
 	
-</s:Application>
+	<components:SelectPerson people="{people.people}" selectPerson="changePerson(event)"/>
+	<components:PersonDetails person="{currentPerson}" />
+	
+</s:WindowedApplication>
