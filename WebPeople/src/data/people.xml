@@ -1,0 +1,15 @@
+<people>
+	<person name="Alex Harui" email="aharui@apache.org" apacheid="aharui" />
+	<person name="Christofer Dutz" email="cdutz@apache.org" apacheid="cdutz" />
+	<person name="Erik de Bruin" email="erikdebruin@apache.org" apacheid="erikdebruin" />
+	<person name="Frédéric Thomas" email="fthomas@apache.org" apacheid="fthomas" />
+	<person name="Gordon Smith" email="gordonsmith@apache.org" apacheid="gordonsmith" />
+	<person name="Harbs" email="harbs@apache.org" apacheid="harbs" />
+	<person name="Justin Mclean" email="jmclean@apache.org" apacheid="jmclean" />
+	<person name="Mark Kessler" email="mkessler@apache.org" apacheid="mkessler" />
+	<person name="Michael Labriola" email="labriola@apache.org" apacheid="labriola" />
+	<person name="OmPrakash Muppirala" email="bigosmallm@apache.org" apacheid="bigosmallm" />
+	<person name="Piotr Zarzycki" email="piotrz@apache.org" apacheid="piotrz" />
+	<person name="Peter Ent" email="pent@apache.org" apacheid="pent" />
+	<person name="Tom Chiverton" email="tomc@apache.org" apacheid="tomc" />
+</people>

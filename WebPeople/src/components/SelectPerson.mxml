@@ -9,23 +9,34 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import events.PersonEvent;			
+			import events.PersonEvent;
+			
 			import model.Person;
+			
 			import mx.collections.ArrayCollection;
+			
 			import spark.events.IndexChangeEvent;
 			
 			[Bindable] public var people:ArrayCollection;
+			[Bindable] public var selectedPerson:Person;
 			
 			protected function onChangePerson(event:IndexChangeEvent):void
 			{
 				var person:Person = (event.target as List).selectedItem;
 				var personEvent:PersonEvent = new PersonEvent(PersonEvent.SELECT_PERSON, person, true);
 
+				selectedPerson = person;
+				
 				dispatchEvent(personEvent);
+			}
+			
+			public function changePerson(person:Person):void {
+				selectedPerson = person;
+				persons.selectedItem = person;
 			}
 		]]>
 	</fx:Script>
 
-	<s:List width="100%" height="100%" dataProvider="{people}" change="onChangePerson(event)" labelField="name" />
+	<s:List id="persons" width="100%" height="100%" dataProvider="{people}" change="onChangePerson(event)" labelField="name" />
 
 </s:VGroup>

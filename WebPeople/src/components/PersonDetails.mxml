@@ -12,12 +12,12 @@
 	</fx:Script>
 	
 	<s:FormItem label="Name" textAlign="right">
-		<s:Label text="{person.name}" />
+		<s:Label id="personName" text="{person.name}" />
 	</s:FormItem>
 	<s:FormItem label="Email" textAlign="right">
-		<s:Label text="{person.email}" />
+		<s:Label id="email" text="{person.email}" />
 	</s:FormItem>
 	<s:FormItem label="Apache ID" textAlign="right">
-		<s:Label text="{person.apacheID}" />
+		<s:Label id="apacheID" text="{person.apacheID}" />
 	</s:FormItem>
 </s:Form>

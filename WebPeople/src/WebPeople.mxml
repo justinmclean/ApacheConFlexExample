@@ -24,7 +24,7 @@
 		]]>
 	</fx:Script>
 
-	<components:SelectPerson people="{people.people}" selectPerson="changePerson(event)"/>
-	<components:PersonDetails person="{currentPerson}" />
+	<components:SelectPerson id="select" people="{people.people}" selectPerson="changePerson(event)"/>
+	<components:PersonDetails id="details" person="{currentPerson}" />
 	
 </s:Application>

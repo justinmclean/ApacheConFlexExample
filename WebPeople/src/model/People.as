@@ -1,34 +1,53 @@
 package model
 {
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
+	import flash.events.IOErrorEvent;
+	import flash.events.SecurityErrorEvent;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	
 	import mx.collections.ArrayCollection;
+	import mx.controls.Alert;
 
-	public class People
+	public class People extends EventDispatcher
 	{
-		[Bindable] public var people:ArrayCollection = new ArrayCollection([
-			new Person("Alex Harui", "aharui@apache.org", "aharui"),
-			new Person("Carol Frampton", "cframpton@apache.org", "cframpton"),
-			new Person("Christophe Herreman", "cherreman@apache.org", "cherreman"),
-			new Person("Erik de Bruin ", "erikdebruin@apache.org", "erikdebruin"),
-			new Person("Garth Braithwait", "garthdb@apache.org", "garthdb"),
-			new Person("Gordon Smith", "gordonsmith@apache.org", "gordonsmith"),
-			new Person("Igor Costa", "igorcosta@apache.org", "igorcosta"),
-			new Person("Jeffry Houser", "jhouser@apache.org", "jhouser"),
-			new Person("Jonathon Campos", "jonbcampos@apache.org", "jonbcampos"),
-			new Person("Jun Heider", "junheider@apache.org", "junheider"),
-			new Person("Justin Mclean", "jmclean@apache.org", "jmclean"),
-			new Person("Leif Wells", "leifwells@apache.org", "leifwells"),
-			new Person("Martin Heidegger", "mheidegger@apache.org", "mheidegger"),
-			new Person("Michael Labriola", "labriola@apache.org", "labriola"),
-			new Person("Michael Schmalle", "mschmalle@apache.org", "mschmalle"),
-			new Person("Omar Gonzalez", "s9tpepper@apache.org", "s9tpepper"),
-			new Person("OmPrakash Muppirala", "bigosmallm@apache.org", "bigosmallm"),
-			new Person("Peter Elst", "peterelst@apache.org", "peterelst"),
-			new Person("Sebastian Mohr", "masuland@apache.org", "masuland"),
-			new Person("Tink", "tink@apache.org", "tink")
-		]);
+		[Bindable] public var people:ArrayCollection = new ArrayCollection();
 		
-		public function People()
+		public function People(autoLoad:Boolean = true)
 		{
+			if (autoLoad) {
+				loadXML();
+			}
+		}
+		
+		public function loadXML(file:String = "./data/people.xml"):void
+		{
+			var request:URLRequest = new URLRequest(file);
+			var loader:URLLoader = new URLLoader();
+
+			loader.addEventListener(Event.COMPLETE, xmlLoaded);
+			loader.addEventListener(IOErrorEvent.IO_ERROR, xmlError);
+			loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, xmlError);
+			loader.load(request);
+		}
+		
+		protected function xmlLoaded(event:Event):void
+		{
+			var data:XMLList = XML(event.target.data).person;
+			var converted:Array = [];
+			
+			for each (var person:XML in data) {
+				converted.push(new Person(person.@name, person.@email, person.@apacheid));
+			}
+			
+			people = new ArrayCollection(converted);
+			dispatchEvent(event);
+		}
+		
+		protected function xmlError(event:Event):void
+		{
+			throw new Error("Unable to load people XML");
 		}
 	}
 }
